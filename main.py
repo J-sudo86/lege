@@ -46,10 +46,11 @@ print(imperfect_harmonic(100))
 """
 
 def gcd_finder(x, y):
-    all_divisors = []
-    for num in range(1, max(x, y), 1):
-        if x % num == 0 and y % num == 0:
-            all_divisors.append(num)
-    return(max(all_divisors))
+    """if x == y:
+        return x
+    return gcd_finder(max(x, y) - min(x, y), min(x, y))"""
+    if y == 0:
+        return x
+    return gcd_finder(y, (x % y))
 
-print(gcd_finder(10, 12))
+print(gcd_finder(48, 18))
